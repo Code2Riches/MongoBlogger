@@ -1,4 +1,10 @@
-# MongoBlogger
+- Create a new github repo:
+	- The title will be MongoBlogger
+	- _Important_: Initalize the repo WITH a README
+	- Clone the repo to your computer and add the link to populi
+- For the assignment, you will write out your queries in NoSQLBooster and then copy/paste the final queries into the README and commit
+- Copy/Paste the following code into NoSQLBooster and update the code per the comments below each function. 
+	- _Note_: Feel free to update/change whatever code you need to for the CRUD functions, the important thing is that they work as intended.
 
 const getUUID = () => {
     const max = 40
@@ -58,9 +64,6 @@ const searchObject = {}
 const sortObject = {}
 const limit = 10
 const skip = 0
-searchObject.createdAt = {
-    $gt: new Date("2022/05/01")
-}
 
 // Uncomment the following line when you're ready to run getPosts
 // const posts = getPosts(searchObject, sortObject, limit, skip)
@@ -82,13 +85,9 @@ Stretch goals:
 const createPost = (newPost) => {
     const id = getUUID()
     const postData = {
-        id: getUUID(),
-        createdAt: new Date(),
-        lastModified: new Date(),
-        title: newPost.title,
-        text: newPost.text,
-        author: newPost.author,
-        categories: newPost.categories
+        /*
+            Your code here ...
+        */
     }
     db.blogs.insertOne(postData)
 }
@@ -114,16 +113,7 @@ Stretch Goal:
 */
 
 const updatePost = (id, newPostData) => {
-    db.blogs.updateOne({
-        title: "The Dark Knight Movie Review"
-    }, {
-        $set: {
-            title: newPostData.title,
-            text: newPostData.text,
-            author: newPostData.author,
-            lastModified: new Date()
-        }
-        })// Update this line with your code
+    db.blogs.updateOne({}, {}) // Update this line with your code
 }
 
 const updatedPost = {
@@ -132,14 +122,14 @@ const updatedPost = {
     author: "Batman",
     categories: ["superhero", "action", "thriller"]
 }
-const postId = "632c9945ab79c920448aa70b" // This variable should be the uuid of the blog post you created before using createPost
+const postId = "" // This variable should be the uuid of the blog post you created before using createPost
 
 // Uncomment the following line when you're ready to run updatePost
-updatePost(postId, updatedPost)
+// updatePost(postId, updatedPost)
 
 /*
 Requirements:
-    - Add code in updatePost so that Mongo will find the post created using createPost and update it to the new data 
+    - Add code in updatePost so that Mongo will find the post created before using createPost and update it to the new data 
         in updatedPost. 
     Note: You will need to change the postId variable to be the UUID given to the blog post you created before using createPost(). 
         This value can be hardcoded in the postId variable, E.G. const postId = "fb1b7a41-ca45-47b5-84f7-64f27b38249b".
@@ -149,13 +139,13 @@ Stretch Goal:
 */
 
 const deletePost = (id) => {
-    db.blogs.deleteOne({id: postIdToDelete})
+    // Your code here ...
 }
 
-const postIdToDelete = "dcc2102d-a20a-4765-8dc4-9079af4fdc9b"
+const postIdToDelete = ""
 
 // Uncomment the following line when you're ready to run deletePost
-deletePost(postIdToDelete)
+// deletePost(postIdToDelete)
 
 /*
 Requirements:
